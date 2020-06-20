@@ -1,0 +1,20 @@
+{% extends 'web/main.html' %}
+{% load crispy_forms_tags %}
+{% block title_page %}
+  <title>Авторизация на сайте</title>
+{% endblock title_page %}
+
+{% block content %}
+<div class="container" style="margin-top: 5%;">
+    <div class="form-section">
+        <h2>Авторизация</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-ouline-warning">Войти</button>
+        </form>
+        <hr>
+        Нету профиля? <a href="{% url 'reg' %}">Зарегистрироваться</a>
+    </div>
+</div>
+{% endblock %}
